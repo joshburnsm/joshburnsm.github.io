@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tesla sign-in code</title>
+<body style="font-family:system-ui,sans-serif;max-width:40rem;margin:3rem auto;padding:0 1rem">
+<h1>Tesla sign-in</h1>
+<p id="msg">No code in this URL.</p>
+<pre id="code" style="white-space:pre-wrap;word-break:break-all;background:#eee;padding:1rem"></pre>
+<p>Copy the code (or this page's whole URL) back to the terminal. It expires in a few minutes and is useless without the app's client secret.</p>
+<script>
+  // Runs only in your browser; nothing is sent anywhere.
+  const q = new URLSearchParams(location.search);
+  if (q.get("code")) {
+    document.getElementById("msg").textContent = "Authorization code:";
+    document.getElementById("code").textContent = q.get("code");
+  } else if (q.get("error")) {
+    document.getElementById("msg").textContent = "Error: " + q.get("error") + " " + (q.get("error_description") || "");
+  }
+</script>
+</body></html>
