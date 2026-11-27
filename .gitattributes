@@ -1,0 +1,4 @@
+# Store text files with LF and check them out with each machine's native line
+# endings, whatever its core.autocrlf. Git detects binary files and leaves them
+# alone.
+* text=auto
